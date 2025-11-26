@@ -10,7 +10,7 @@
     <meta name="description" content="Join Weapon Fitness 2 in BSK 3rd Stage, Bangalore. Experience modern equipment, certified trainers, personalized training, and diet guidance. Offers available! Call 9916577094">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/assets/logo (1).jpg">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     
     <!-- Tailwind CSS -->
@@ -51,7 +51,17 @@
         body{font-family:Inter, sans-serif;background:#000;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
         .progress-bar{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,#FF6B00,#FF8534);width:0%;z-index:60}
         .hero-parallax{position:relative;height:100vh;overflow:hidden}
-        .hero-bg{position:absolute;top:0;left:0;width:100%;height:120%;background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920') center/cover;will-change:transform}
+        .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+                url('./assets/1.jpg') center/cover;
+    will-change: transform;
+}
+
         .orange-accent{color:#FF6B00}
         .btn-orange{background:#FF6B00;transition:all .25s ease}
         .btn-orange:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,107,0,.25)}
@@ -117,10 +127,14 @@
     <nav class="fixed w-full top-0 z-50 bg-black bg-opacity-90 backdrop-blur-md" id="navbar">
         <div class="container">
             <div class="flex justify-between items-center py-4">
-                <div class="text-2xl font-bold">
-                    <span class="text-white">WEAPON</span>
-                    <span class="orange-accent"> FITNESS 2</span>
-                </div>
+                <div class="flex items-center gap-2">
+    <img src="/assets/logo (1).jpg" alt="Weapon Fitness 2 Logo" class="h-10 w-auto">
+    <div class="text-2xl font-bold">
+        <span class="text-white">WEAPON</span>
+        <span class="orange-accent"> FITNESS 2</span>
+    </div>
+</div>
+
                 <div class="hidden md:flex space-x-8" id="desktopMenu">
                     <a href="index.html" class="nav-link text-white">Home</a>
                     <a href="trainers.html" class="nav-link text-white">Trainers</a>
@@ -203,19 +217,19 @@
             <p class="text-center text-gray-400 mb-12 text-lg">Real Results. Real People. Real Success.</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                 <div class="transformation-card" data-transform>
-                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600" alt="Transformation 1" class="w-full h-80 object-cover rounded-xl">
+                    <img src="/assets/transformations/01.png" alt="Transformation 1" class="w-full h-80 object-cover rounded-xl">
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 rounded-b-xl">
                         <p class="text-lg font-bold">-15 KG in 3 Months</p>
                     </div>
                 </div>
                 <div class="transformation-card" data-transform>
-                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600" alt="Transformation 2" class="w-full h-80 object-cover rounded-xl">
+                    <img src="/assets/transformations/02.png" alt="Transformation 2" class="w-full h-80 object-cover rounded-xl">
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 rounded-b-xl">
                         <p class="text-lg font-bold">+8 KG Muscle Gain</p>
                     </div>
                 </div>
                 <div class="transformation-card" data-transform>
-                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600" alt="Transformation 3" class="w-full h-80 object-cover rounded-xl">
+                    <img src="/assets/transformations/03.png" alt="Transformation 3" class="w-full h-80 object-cover rounded-xl">
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 rounded-b-xl">
                         <p class="text-lg font-bold">Complete Body Recomp</p>
                     </div>

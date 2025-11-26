@@ -10,7 +10,7 @@
   <meta name="description" content="Meet the certified, professional trainers of Weapon Fitness 2 in BSK 3rd Stage, Bangalore. Experts in weight loss, muscle gain, functional training, CrossFit & more. Contact 9916577094" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="/assets/logo (1).jpg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
   <!-- Tailwind CSS (CDN for quick demo) -->
@@ -85,14 +85,15 @@
     /* Hero parallax */
     .hero-parallax { position: relative; height:100vh; overflow:hidden; display:flex; align-items:center; justify-content:center; text-align:center; }
      .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 120%;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920') center/cover;
-            will-change: transform;
-        }
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('/assets/3.jpg') center/cover;
+    will-change: transform;
+}
+
 
     .hero-content { position:relative; z-index:10; padding: 0 20px; max-width:1100px; }
 
@@ -164,9 +165,14 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center gap-4">
-          <div class="text-2xl font-extrabold tracking-tight">
-            <span>WEAPON</span> <span class="orange-accent">FITNESS 2</span>
-          </div>
+          <div class="flex items-center gap-2">
+    <img src="/assets/logo (1).jpg" alt="Weapon Fitness 2 Logo" class="h-10 w-auto">
+    <div class="text-2xl font-bold">
+        <span class="text-white">WEAPON</span>
+        <span class="orange-accent"> FITNESS 2</span>
+    </div>
+</div>
+
         </div>
 
         <!-- Desktop menu -->
@@ -208,7 +214,7 @@
   <section class="hero-parallax" aria-label="Hero">
    <div id="heroBg" 
      class="hero-bg"
-     style="background-image:url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1920&q=80');">
+     style="background-image:url('assets/3.jpg');">
 </div>
 
 
