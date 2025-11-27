@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#000000" />
 
   <!-- SEO Meta Tags -->
-  <title>Weapon Fitness 2 - Certified Gym Trainers | Personal Training in BSK 3rd Stage</title>
-  <meta name="description" content="Meet the certified, professional trainers of Weapon Fitness 2 in BSK 3rd Stage, Bangalore. Experts in weight loss, muscle gain, functional training, CrossFit & more. Contact 9916577094" />
+  <title>weapon fitness - Certified Gym Trainers | Personal Training in BSK 3rd Stage</title>
+  <meta name="description" content="Meet the certified, professional trainers of weapon fitness in BSK 3rd Stage, Bangalore. Experts in weight loss, muscle gain, functional training, CrossFit & more. Contact 9916577094" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/assets/logo (1).jpg">
@@ -25,7 +25,7 @@
   {
     "@context": "https://schema.org",
     "@type": "GymAndFitnessCenter",
-    "name": "Weapon Fitness 2",
+    "name": "weapon fitness",
     "image": "https://yoursite.com/logo.png",
     "address": {
       "@type": "PostalAddress",
@@ -161,51 +161,41 @@
 
 
   <!-- NAVBAR -->
-  <nav id="navbar" aria-label="Main navigation">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center gap-4">
-          <div class="flex items-center gap-2">
-    <img src="/assets/logo (1).jpg" alt="Weapon Fitness 2 Logo" class="h-10 w-auto">
+  <nav class="fixed w-full top-0 z-50 bg-black bg-opacity-90 backdrop-blur-md" id="navbar">
+        <div class="container">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center gap-2">
+    <img src="/assets/logo (1).jpg" alt="weapon fitness Logo" class="h-10 w-auto">
     <div class="text-2xl font-bold">
         <span class="text-white">WEAPON</span>
-        <span class="orange-accent"> FITNESS 2</span>
+        <span class="orange-accent"> FITNESS </span>
     </div>
 </div>
 
+                <div class="hidden md:flex space-x-8" id="desktopMenu">
+                    <a href="index.html" class="nav-link text-white">Home</a>
+                    <a href="trainers.html" class="nav-link text-white">Trainers</a>
+                    <a href="equipment.html" class="nav-link text-white">Our Equipment</a>
+                    <a href="subscriptions.html" class="nav-link text-white">Subscriptions</a>
+                    <a href="gallery.html" class="nav-link text-white">Gallery</a>
+                    <a href="contact.html" class="nav-link text-white">Contact Us</a>
+                </div>
+                <button class="md:hidden text-white" id="menuBtn" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="hidden md:hidden pb-4" id="mobileMenu">
+                <a href="index.html" class="block py-2 text-white">Home</a>
+                <a href="trainers.html" class="block py-2 text-white">Trainers</a>
+                <a href="equipment.html" class="block py-2 text-white">Our Equipment</a>
+                <a href="subscriptions.html" class="block py-2 text-white">Subscriptions</a>
+                <a href="gallery.html" class="block py-2 text-white">Gallery</a>
+                <a href="contact.html" class="block py-2 text-white">Contact Us</a>
+            </div>
         </div>
-
-        <!-- Desktop menu -->
-        <div class="hidden md:flex md:items-center md:space-x-8">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="trainers.html" class="nav-link text-orange-accent">Trainers</a>
-          <a href="equipment.html" class="nav-link">Our Equipment</a>
-          <a href="subscriptions.html" class="nav-link">Subscriptions</a>
-          <a href="gallery.html" class="nav-link">Gallery</a>
-          <a href="contact.html" class="nav-link">Contact Us</a>
-        </div>
-
-        <!-- Mobile menu button -->
-        <div class="md:hidden">
-          <button id="menuBtn" aria-label="Open menu" class="p-2">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Mobile menu -->
-      <div id="mobileMenu" class="hidden md:hidden pb-4">
-        <a href="index.html" class="block py-2">Home</a>
-        <a href="trainers.html" class="block py-2 text-orange-accent">Trainers</a>
-        <a href="equipment.html" class="block py-2">Our Equipment</a>
-        <a href="subscriptions.html" class="block py-2">Subscriptions</a>
-        <a href="gallery.html" class="block py-2">Gallery</a>
-        <a href="contact.html" class="block py-2">Contact Us</a>
-      </div>
-    </div>
-  </nav>
+    </nav>
 
   <!-- SPACER to account for fixed navbar -->
   <div style="height:64px;"></div>
@@ -251,50 +241,13 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Trainer 1 -->
         <article class="trainer-card p-6 rounded-xl opacity-0">
-          <img class="trainer-img w-full rounded-xl" src="https://images.unsplash.com/photo-1594737625785-7c8b0108a1dc?w=1000&q=80&auto=format&fit=crop" alt="Rohit Shetty - Strength Coach" loading="lazy" />
-          <h3 class="text-2xl font-bold mt-4">Rohit Shetty</h3>
+          <img class="trainer-img w-full rounded-xl" src="/assets/1.jpg" alt="Rohit Shetty - Strength Coach" loading="lazy" />
+          <h3 class="text-2xl font-bold mt-4">Shivakumar</h3>
           <p class="text-orange-accent font-semibold">Strength & Conditioning Coach</p>
           <p class="text-gray-300 mt-3">6+ years experience in strength training, hypertrophy, athletic conditioning and program design for all levels.</p>
         </article>
 
-        <!-- Trainer 2 -->
-        <article class="trainer-card p-6 rounded-xl opacity-0">
-          <img class="trainer-img w-full rounded-xl" src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=1000&q=80&auto=format&fit=crop" alt="Anita Verma - Weight Loss Specialist" loading="lazy" />
-          <h3 class="text-2xl font-bold mt-4">Anita Verma</h3>
-          <p class="text-orange-accent font-semibold">Weight Loss Specialist</p>
-          <p class="text-gray-300 mt-3">Specialist in fat-loss programming, HIIT, and female-focused fitness — combines training with nutrition coaching.</p>
-        </article>
-
-        <!-- Trainer 3 -->
-        <article class="trainer-card p-6 rounded-xl opacity-0">
-          <img class="trainer-img w-full rounded-xl" src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1000&q=80&auto=format&fit=crop" alt="Sagar Rao - CrossFit Coach" loading="lazy" />
-          <h3 class="text-2xl font-bold mt-4">Sagar Rao</h3>
-          <p class="text-orange-accent font-semibold">CrossFit & Functional Coach</p>
-          <p class="text-gray-300 mt-3">Focuses on CrossFit WODs, mobility, stamina and structured progression for athletes and beginners alike.</p>
-        </article>
-
-        <!-- Additional trainer placeholders -->
-        <article class="trainer-card p-6 rounded-xl opacity-0">
-          <img class="trainer-img w-full rounded-xl" src="https://images.unsplash.com/photo-1526403224742-5a7f9d9d8b6d?w=1000&q=80&auto=format&fit=crop" alt="Trainer 4" loading="lazy" />
-          <h3 class="text-2xl font-bold mt-4">Priya Sharma</h3>
-          <p class="text-orange-accent font-semibold">Functional Trainer</p>
-          <p class="text-gray-300 mt-3">Expert in mobility, corrective exercises and functional strength programming for daily performance.</p>
-        </article>
-
-        <article class="trainer-card p-6 rounded-xl opacity-0">
-          <img class="trainer-img w-full rounded-xl" src="https://images.unsplash.com/photo-1542326237-94b8e3b2a8a2?w=1000&q=80&auto=format&fit=crop" alt="Trainer 5" loading="lazy" />
-          <h3 class="text-2xl font-bold mt-4">Vikram Patel</h3>
-          <p class="text-orange-accent font-semibold">Cardio & Endurance Coach</p>
-          <p class="text-gray-300 mt-3">Designs endurance, cardio and sports-specific conditioning programs to boost VO2 and recovery.</p>
-        </article>
-
-        <article class="trainer-card p-6 rounded-xl opacity-0">
-          <img class="trainer-img w-full rounded-xl" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=1000&q=80&auto=format&fit=crop" alt="Trainer 6" loading="lazy" />
-          <h3 class="text-2xl font-bold mt-4">Neha Rao</h3>
-          <p class="text-orange-accent font-semibold">Nutrition & Wellness Coach</p>
-          <p class="text-gray-300 mt-3">Certified nutritionist focusing on sustainable habits, meal planning and performance fueling.</p>
-        </article>
-      </div>
+       
 
       <div class="text-center mt-12">
         <a href="contact.html" class="btn-orange">BOOK A FREE TRIAL SESSION</a>
@@ -370,20 +323,33 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="py-10">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <div class="mb-6">
-        <strong>WEAPON FITNESS 2</strong>
-      </div>
-      <nav class="flex justify-center gap-6 mb-6">
-        <a href="index.html" class="text-gray-400 hover:text-white">Home</a>
-        <a href="subscriptions.html" class="text-gray-400 hover:text-white">Subscriptions</a>
-        <a href="trainers.html" class="text-gray-400 hover:text-white">Trainers</a>
-        <a href="contact.html" class="text-gray-400 hover:text-white">Contact</a>
-      </nav>
-      <div class="text-gray-500 text-sm">&copy; <span id="currentYear"></span> Weapon Fitness 2. All rights reserved.</div>
-    </div>
-  </footer>
+  <footer class="bg-zinc-950 py-12 px-4">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4"><span class="text-white">WEAPON</span> <span class="orange-accent"> FITNESS 2</span></h3>
+                    <p class="text-gray-400">Transform your body and mind at BSK 3rd Stage's premier fitness destination.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4 orange-accent">QUICK LINKS</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-orange-500">Home</a></li>
+                        <li><a href="subscriptions.html" class="hover:text-orange-500">Subscriptions</a></li>
+                        <li><a href="trainers.html" class="hover:text-orange-500">Trainers</a></li>
+                        <li><a href="contact.html" class="hover:text-orange-500">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4 orange-accent">GET STARTED</h4>
+                    <p class="text-gray-400 mb-4">Ready to begin your fitness journey?</p>
+                    <a href="contact.html" class="inline-block px-6 py-3 btn-orange text-white font-bold rounded-lg">CONTACT US</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
+                <p>&copy; <span id="currentYear"></span> weapon fitness. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
   <!-- SCRIPTS -->
   <script>
