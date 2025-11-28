@@ -16,6 +16,40 @@
 
   <!-- Inline styles (keeps everything self-contained) -->
   <style>
+    /* ---------- Fix for select dropdown visibility (dark theme) ---------- */
+
+/* Make select match dark theme */
+select.glass-input,
+select.glass-input option {
+  background: #0b0b0b !important;   /* dark background for dropdown and options */
+  color: #fff !important;           /* visible white text */
+}
+
+/* Ensure select gets its own stacking context and appears above other elements */
+select.glass-input {
+  position: relative;   /* create stacking context */
+  z-index: 99999;       /* very high so dropdown won't be covered */
+  -webkit-appearance: none; /* optional: keep a consistent look across browsers */
+  appearance: none;
+}
+
+/* If a parent has overflow:hidden that clips the native dropdown in some browsers,
+   allow the select to escape clipping by increasing parent's visible overflow only where safe. */
+.form-allow-overflow, .glass-card, .container {
+  overflow: visible !important;
+}
+
+/* Small optional polish: add a caret (since we removed native appearance) */
+select.glass-input::-ms-expand { display: none; } /* remove IE caret */
+
+
+/* Accessibility: keep focus outline visible */
+select.glass-input:focus {
+  outline: 3px solid rgba(255,107,0,0.15);
+  outline-offset: 2px;
+}
+
+
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
 
     * { box-sizing: border-box; margin:0; padding:0; }
@@ -260,33 +294,316 @@
         <p class="text-gray-400 mt-2">Fill out the form and we’ll get back to you shortly.</p>
       </div>
 
-      <form class="glass-card space-y-4 p-6" onsubmit="handleContact(event)" id="contactFormEl">
-        <div>
-          <label class="text-gray-300 text-sm">Your Name</label>
-          <input name="name" required class="glass-input mt-2" placeholder="John Doe" />
-        </div>
+      <!-- Combined dynamic contact form: paste this where your current contact form sits -->
+<form class="glass-card space-y-4 p-6" onsubmit="handleContact(event)" id="contactFormEl">
+  <!-- visible at all times -->
+  <input type="hidden" name="goal" id="goalInput" value="General Fitness" />
 
-        <div>
-          <label class="text-gray-300 text-sm">Phone Number</label>
-          <input name="phone" required class="glass-input mt-2" placeholder="8050577094" />
-        </div>
+  <div>
+    <label class="text-gray-300 text-sm">Select Goal</label>
+    <select id="goalSelect" class="glass-input mt-2" aria-label="Select fitness goal">
+      <option value="General Fitness" selected>General Fitness & Wellness</option>
+      <option value="Weight Loss">Weight Loss / Fat Loss</option>
+      <option value="Muscle Gain">Muscle Gain / Hypertrophy</option>
+      <option value="Rehabilitation">Rehabilitation / Post-injury</option>
+      <option value="Group Training">Group / Small-Group Training</option>
+      <option value="Online Coaching">Online Coaching / Remote Program</option>
+      <option value="Nutrition Consultation">Nutrition Consultation</option>
+      <option value="Transformation Challenge">30/60-Day Transformation Challenge</option>
+      <option value="Senior Fitness">Senior / Low-impact Fitness</option>
+    </select>
+  </div>
 
-        <div>
-          <label class="text-gray-300 text-sm">Email Address</label>
-          <input name="email" type="email" required class="glass-input mt-2" placeholder="you@example.com" />
-        </div>
+  <!-- CORE CONTACT FIELDS (always enabled) -->
+  <div>
+    <label class="text-gray-300 text-sm">Your Name</label>
+    <input name="name" required class="glass-input mt-2" placeholder="John Doe" />
+  </div>
 
-        <div>
-          <label class="text-gray-300 text-sm">Message</label>
-          <textarea name="message" rows="5" required class="glass-input mt-2" placeholder="Tell us how we can help..."></textarea>
-        </div>
+  <div>
+    <label class="text-gray-300 text-sm">Phone Number</label>
+    <input name="phone" required class="glass-input mt-2" placeholder="8050577094" />
+  </div>
 
-        <div class="text-center">
-          <button type="submit" class="btn-orange text-white" id="submitBtn">
-            <span class="btn-text">Send Message</span>
-          </button>
-        </div>
-      </form>
+  <div>
+    <label class="text-gray-300 text-sm">Email Address</label>
+    <input name="email" type="email" class="glass-input mt-2" placeholder="you@example.com" />
+  </div>
+
+  <!-- =========================
+       GOAL-SPECIFIC SECTIONS
+       Each section has data-goal matching the select values.
+       Hidden sections will be disabled by script to avoid submission.
+       ========================= -->
+
+  <!-- GENERAL FITNESS (default visible) -->
+  <div class="goal-section" data-goal="General Fitness" aria-hidden="false">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="text-gray-300 text-sm">Age</label>
+        <input name="age" class="glass-input mt-2" placeholder="28" inputmode="numeric" />
+      </div>
+      <div>
+        <label class="text-gray-300 text-sm">Preferred Session Time</label>
+        <select name="pref_time" class="glass-input mt-2">
+          <option value="">Select</option>
+          <option>Early Morning</option>
+          <option>Afternoon</option>
+          <option>Evening</option>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <label class="text-gray-300 text-sm">What do you want to improve?</label>
+      <input name="improvements" class="glass-input mt-2" placeholder="e.g., stamina, flexibility, strength" />
+    </div>
+  </div>
+
+  <!-- WEIGHT LOSS -->
+  <div class="goal-section hidden" data-goal="Weight Loss" aria-hidden="true">
+    <input type="hidden" name="weightloss_section" value="1" />
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="text-gray-300 text-sm">Current Weight (kg)</label>
+        <input name="current_weight" class="glass-input mt-2" placeholder="78" inputmode="numeric" />
+      </div>
+      <div>
+        <label class="text-gray-300 text-sm">Target Weight (kg)</label>
+        <input name="target_weight" class="glass-input mt-2" placeholder="70" inputmode="numeric" />
+      </div>
+    </div>
+
+    <div>
+      <label class="text-gray-300 text-sm">Activity Level</label>
+      <select name="activity" class="glass-input mt-2">
+        <option value="">Select</option>
+        <option>Sedentary</option>
+        <option>Lightly Active</option>
+        <option>Moderately Active</option>
+        <option>Very Active</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="text-gray-300 text-sm">Any Medical Concerns / Allergies</label>
+      <textarea name="medical" rows="3" class="glass-input mt-2" placeholder="E.g., asthma, allergies..."></textarea>
+    </div>
+  </div>
+
+  <!-- MUSCLE GAIN -->
+  <div class="goal-section hidden" data-goal="Muscle Gain" aria-hidden="true">
+    <input type="hidden" name="musclegain_section" value="1" />
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="text-gray-300 text-sm">Current Weight (kg)</label>
+        <input name="mg_current_weight" class="glass-input mt-2" placeholder="68" inputmode="numeric" />
+      </div>
+      <div>
+        <label class="text-gray-300 text-sm">Target Muscle Mass / Goal</label>
+        <input name="target_note" class="glass-input mt-2" placeholder="+5 kg / increase strength" />
+      </div>
+    </div>
+
+    <div>
+      <label class="text-gray-300 text-sm">Training Experience</label>
+      <select name="experience" class="glass-input mt-2">
+        <option value="">Select</option>
+        <option>Beginner</option>
+        <option>Intermediate</option>
+        <option>Advanced</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="text-gray-300 text-sm">Do you have access to a gym?</label>
+      <select name="gym_access" class="glass-input mt-2">
+        <option value="">Select</option>
+        <option>Yes - Full Gym</option>
+        <option>Yes - Basic Equipment</option>
+        <option>No - Home only</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- REHABILITATION / POST-INJURY -->
+  <div class="goal-section hidden" data-goal="Rehabilitation" aria-hidden="true">
+    <input type="hidden" name="rehab_section" value="1" />
+    <div>
+      <label class="text-gray-300 text-sm">Injury / Condition</label>
+      <input name="injury" class="glass-input mt-2" placeholder="e.g., knee surgery, lower back pain" />
+    </div>
+
+    <div>
+      <label class="text-gray-300 text-sm">When did it occur?</label>
+      <input name="injury_date" type="date" class="glass-input mt-2" />
+    </div>
+
+    <div>
+      <label class="text-gray-300 text-sm">Medical Clearance / Doctor notes</label>
+      <textarea name="medical_clearance" rows="3" class="glass-input mt-2" placeholder="Doctor notes, restrictions..."></textarea>
+    </div>
+  </div>
+
+  <!-- GROUP TRAINING -->
+  <div class="goal-section hidden" data-goal="Group Training" aria-hidden="true">
+    <input type="hidden" name="group_section" value="1" />
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="text-gray-300 text-sm">Coordinator Name</label>
+        <input name="coord_name" class="glass-input mt-2" placeholder="Team lead name" />
+      </div>
+      <div>
+        <label class="text-gray-300 text-sm">Group Size</label>
+        <input name="group_size" class="glass-input mt-2" placeholder="e.g., 4" inputmode="numeric" />
+      </div>
+    </div>
+    <div>
+      <label class="text-gray-300 text-sm">Preferred Days</label>
+      <input name="pref_days" class="glass-input mt-2" placeholder="e.g., Mon/Wed/Fri" />
+    </div>
+  </div>
+
+  <!-- ONLINE COACHING -->
+  <div class="goal-section hidden" data-goal="Online Coaching" aria-hidden="true">
+    <input type="hidden" name="online_section" value="1" />
+    <div>
+      <label class="text-gray-300 text-sm">Preferred Platform</label>
+      <select name="platform" class="glass-input mt-2">
+        <option>WhatsApp</option>
+        <option>Zoom</option>
+        <option>Google Meet</option>
+        <option>Video + Chat Plan</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="text-gray-300 text-sm">Timezone / Best Contact Time</label>
+      <input name="time" class="glass-input mt-2" placeholder="E.g., 6-8 PM IST" />
+    </div>
+  </div>
+
+  <!-- NUTRITION CONSULTATION -->
+  <div class="goal-section hidden" data-goal="Nutrition Consultation" aria-hidden="true">
+    <input type="hidden" name="nutrition_section" value="1" />
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="text-gray-300 text-sm">Height (cm)</label>
+        <input name="height" class="glass-input mt-2" placeholder="170" inputmode="numeric" />
+      </div>
+      <div>
+        <label class="text-gray-300 text-sm">Current Weight (kg)</label>
+        <input name="nut_current_weight" class="glass-input mt-2" placeholder="72" inputmode="numeric" />
+      </div>
+    </div>
+
+    <div>
+      <label class="text-gray-300 text-sm">Dietary Preferences / Restrictions</label>
+      <input name="diet" class="glass-input mt-2" placeholder="e.g., Vegetarian, No dairy, Halal" />
+    </div>
+  </div>
+
+  <!-- TRANSFORMATION CHALLENGE -->
+  <div class="goal-section hidden" data-goal="Transformation Challenge" aria-hidden="true">
+    <input type="hidden" name="challenge_section" value="1" />
+    <div>
+      <label class="text-gray-300 text-sm">Choose Challenge</label>
+      <select name="challenge_length" class="glass-input mt-2">
+        <option value="">Select</option>
+        <option>30-Day</option>
+        <option>60-Day</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="text-gray-300 text-sm">Current Fitness Level</label>
+      <select name="fitness_level" class="glass-input mt-2">
+        <option>Beginner</option>
+        <option>Intermediate</option>
+        <option>Advanced</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- SENIOR / LOW-IMPACT -->
+  <div class="goal-section hidden" data-goal="Senior Fitness" aria-hidden="true">
+    <input type="hidden" name="senior_section" value="1" />
+    <div>
+      <label class="text-gray-300 text-sm">Age</label>
+      <input name="senior_age" class="glass-input mt-2" placeholder="60" inputmode="numeric" />
+    </div>
+
+    <div>
+      <label class="text-gray-300 text-sm">Any Mobility Concerns?</label>
+      <textarea name="mobility" rows="2" class="glass-input mt-2" placeholder="E.g., knee pain, balance issues..."></textarea>
+    </div>
+  </div>
+
+  <!-- FINAL MESSAGE (shared) -->
+  <div>
+    <label class="text-gray-300 text-sm">Additional Message</label>
+    <textarea name="message" rows="4" class="glass-input mt-2" placeholder="Tell us how we can help..."></textarea>
+  </div>
+
+  <div class="text-center">
+    <button type="submit" class="btn-orange text-white" id="submitBtn">
+      <span class="btn-text">Send Message</span>
+    </button>
+  </div>
+</form>
+
+<!-- Script to handle showing/hiding and enabling/disabling fields -->
+<script>
+  (function(){
+    const goalSelect = document.getElementById('goalSelect');
+    const goalInput = document.getElementById('goalInput');
+    const form = document.getElementById('contactFormEl');
+
+    function setVisibilityForGoal(goal) {
+      // update hidden main goal input
+      if (goalInput) goalInput.value = goal;
+
+      const sections = form.querySelectorAll('.goal-section');
+      sections.forEach(sec => {
+        const secGoal = sec.getAttribute('data-goal');
+        if (secGoal === goal) {
+          sec.classList.remove('hidden');
+          sec.setAttribute('aria-hidden', 'false');
+          // enable inputs inside this section
+          sec.querySelectorAll('input, select, textarea').forEach(i => i.disabled = false);
+        } else {
+          // hide & disable
+          if (!sec.classList.contains('hidden')) sec.classList.add('hidden');
+          sec.setAttribute('aria-hidden', 'true');
+          sec.querySelectorAll('input, select, textarea').forEach(i => {
+            // keep the hidden sentinel inputs (the ones with name ending with "_section" or hidden fields)
+            // disabled only if they are not the section sentinel (those keep presence if needed)
+            const isSentinel = i.type === 'hidden' && /_section$/.test(i.name);
+            if (!isSentinel) i.disabled = true;
+          });
+        }
+      });
+    }
+
+    // initialize
+    if (goalSelect) {
+      setVisibilityForGoal(goalSelect.value);
+      goalSelect.addEventListener('change', (e) => setVisibilityForGoal(e.target.value));
+    }
+
+    // ensure that on form reset (if used) we reapply defaults
+    form.addEventListener('reset', () => {
+      setTimeout(() => {
+        setVisibilityForGoal(goalSelect.value || 'General Fitness');
+      }, 10);
+    });
+
+    // Accessibility: keyboard support - if user focuses select and presses arrow keys, change handled by native control.
+
+    // Optional: If your existing handleContact relies on specific IDs for form fields, adapt accordingly.
+  })();
+</script>
+
     </div>
   </section>
 
