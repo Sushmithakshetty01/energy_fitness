@@ -1,470 +1,617 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#000000">
-    
-    <!-- SEO Meta Tags -->
-    <title>weapon fitness - Best Gym in BSK 3rd Stage, Bangalore | Modern Equipment & Certified Trainers</title>
-    <meta name="description" content="Join weapon fitness in BSK 3rd Stage, Bangalore. Experience modern equipment, certified trainers, personalized training, and diet guidance. Offers available! Call 9916577094">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/assets/logo (1).jpg">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- GSAP Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Observer.min.js"></script>
-    
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="css/style.css">
-    
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "GymAndFitnessCenter",
-      "name": "weapon fitness",
-      "image": "https://yoursite.com/logo.png",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "#175, BDA Layout, 50 Feet Road, Above HDFC Bank",
-        "addressLocality": "BSK 3rd Stage",
-        "addressRegion": "Bangalore",
-        "postalCode": "560085",
-        "addressCountry": "IN"
-      },
-      "telephone": ["+919916577094", "+918050577094"],
-      "openingHours": "Mo-Su 06:00-22:00"
-    }
-    </script>
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-        *{box-sizing:border-box;margin:0;padding:0}
-        html{scroll-behavior:smooth}
-        body{font-family:Inter, sans-serif;background:#000;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-        .progress-bar{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,#FF6B00,#FF8534);width:0%;z-index:60}
-        .hero-parallax{position:relative;height:100vh;overflow:hidden}
-        .hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 120%;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
-                url('./assets/1.jpg') center/cover;
-    will-change: transform;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+  <title>weapon fitness - Best Gym in BSK 3rd Stage, Bangalore | Modern Equipment & Certified Trainers</title>
+  <meta name="description" content="Join weapon fitness in BSK 3rd Stage, Bangalore. Experience modern equipment, certified trainers, personalized training, and diet guidance. Offers available! Call 9916577094">
+  <link rel="icon" type="image/x-icon" href="/assets/logo (1).jpg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        .orange-accent{color:#FF6B00}
-        .btn-orange{background:#FF6B00;transition:all .25s ease}
-        .btn-orange:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,107,0,.25)}
-        .service-card{background:rgba(255,255,255,.03);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.04);transition:all .35s ease;transform-style:preserve-3d}
-        .service-card:focus{outline:2px solid rgba(255,107,0,.18)}
-        .transformation-card{position:relative;overflow:hidden;border-radius:12px;perspective:1200px}
-        .transformation-card img{transition:transform .6s cubic-bezier(.2,.9,.2,1),filter .5s ease}
-        .transformation-card:hover img{transform:scale(1.08) rotateZ(-1deg);filter:brightness(.95)}
-        .whatsapp-float{position:fixed;width:60px;height:60px;bottom:30px;right:30px;background:#25D366;color:#fff;border-radius:50px;display:flex;align-items:center;justify-content:center;z-index:100;box-shadow:2px 2px 10px rgba(0,0,0,.3);transition:transform .25s}
-        .whatsapp-float:hover{transform:scale(1.06)}
-        .nav-link{position:relative;transition:color .25s}
-        .nav-link::after{content:'';position:absolute;width:0;height:2px;bottom:-5px;left:0;background:#FF6B00;transition:width .25s}
-        .nav-link:hover::after{width:100%}
-        .loading-screen{position:fixed;inset:0;background:#000;display:flex;align-items:center;justify-content:center;z-index:9999}
-        .container{max-width:1200px;margin:0 auto;padding:0 1rem}
-        .ripple{position:relative;overflow:hidden}
-        .ripple:after{content:'';position:absolute;border-radius:50%;transform:scale(0);opacity:.6;pointer-events:none}
-        @media(max-width:768px){.whatsapp-float{width:50px;height:50px;font-size:25px;bottom:20px;right:20px}}
-    </style>
+  <!-- Tailwind (dev quick include) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Observer.min.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    /* Reset & base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: #000;
+      color: #fff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* Utilities */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    .orange-accent { color: #FF6B00; }
+    .btn-orange { background: #FF6B00; transition: all .25s ease; }
+    .btn-orange:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(255,107,0,.25); }
+    .service-card { background: rgba(255,255,255,.03); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.04); transition: all .35s ease; transform-style: preserve-3d; }
+    .service-card:focus { outline: 2px solid rgba(255,107,0,.18); }
+    .transformation-card { position: relative; overflow: hidden; border-radius: 12px; perspective: 1200px; }
+    .transformation-card img { transition: transform .6s cubic-bezier(.2,.9,.2,1), filter .5s ease; display:block; width:100%; height:100%; object-fit:cover; }
+    .transformation-card:hover img { transform: scale(1.08) rotateZ(-1deg); filter: brightness(.95); }
+    .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background:#25D366; color:#fff; border-radius:50px; display:flex; align-items:center; justify-content:center; z-index:100; box-shadow:2px 2px 10px rgba(0,0,0,.3); transition: transform .25s; }
+    .whatsapp-float:hover { transform: scale(1.06); }
+    .nav-link { position: relative; transition: color .25s; }
+    .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -6px; left: 0; background: #FF6B00; transition: width .25s; }
+    .nav-link:hover::after { width: 100%; }
+    .progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg,#FF6B00,#FF8534); width: 0%; z-index: 60; }
+
+    /* Loading screen */
+    .loading-screen { position: fixed; inset: 0; background: #000; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+    .loader-svg svg { display: block; }
+
+    /* Ripple base for buttons */
+    .ripple { position: relative; overflow: hidden; }
+    .ripple span { position: absolute; border-radius: 50%; transform: scale(0); opacity: .6; pointer-events: none; }
+
+    /* Hero */
+    .hero-parallax { position: relative; min-height: 70vh; height: auto; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 3rem 1rem; }
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('/assets/1.jpg') center/cover no-repeat;
+      will-change: transform;
+      z-index: 1;
+    }
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.62), rgba(0,0,0,0.72));
+      z-index: 10;
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 20;
+      max-width: 1100px;
+      width: 100%;
+      padding: 2rem 1rem;
+      text-align: center;
+      pointer-events: auto;
+    }
+    #heroTitle { font-weight: 800; line-height: 1.02; margin-bottom: .5rem; font-size: clamp(2.2rem, 8vw, 4.5rem); color: #fff; text-shadow: 0 6px 18px rgba(0,0,0,0.55); }
+    #heroSubtitle { font-size: clamp(1rem, 3.2vw, 1.55rem); margin-bottom: 1rem; color: #e6e6e6; text-shadow: 0 6px 18px rgba(0,0,0,0.45); }
+    #heroCTA { display: inline-block; font-size: clamp(.9rem, 2.6vw, 1.125rem); padding: .6rem 1.1rem; z-index: 22; }
+
+    /* Section spacing */
+    section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+    @media (min-width: 1024px) { section { padding-top: 4.5rem; padding-bottom: 4.5rem; } }
+
+    /* Services grid */
+    .service-grid { display: grid; grid-template-columns: 1fr; gap: 1.75rem; }
+    @media(min-width: 768px) { .service-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media(min-width: 1024px) { .service-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    /* Transformations */
+    .transform-grid { display:grid; grid-template-columns: 1fr; gap: 1.75rem; }
+    @media(min-width: 768px) { .transform-grid { grid-template-columns: repeat(3, 1fr); } }
+    .transformation-card .meta { position: absolute; bottom: 0; left: 0; right: 0; padding: 1rem; background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.3)); }
+
+    /* Location map */
+    .map-wrap { width: 100%; min-height: 240px; height: 100%; border-radius: 0.75rem; overflow: hidden; }
+    @media(min-width: 1024px) { .map-wrap { min-height: 420px; } }
+
+    /* Footer */
+    footer .grid-footer { display:grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    @media(min-width: 768px) { footer .grid-footer { grid-template-columns: repeat(3, 1fr); } }
+
+    /* Mobile adjustments */
+    @media(max-width: 768px) {
+      .whatsapp-float { width:50px; height:50px; bottom:20px; right:20px; }
+      nav .container { padding-left: .75rem; padding-right: .75rem; }
+      .hero-content { padding: 1.25rem; }
+      .loading-screen { align-items: center; justify-content: center; padding: 1rem; }
+    }
+
+    /* Accessibility focus */
+    a:focus, button:focus { outline: 3px solid rgba(255,107,0,0.18); outline-offset: 3px; }
+
+  </style>
 </head>
 <body>
-    <!-- Scroll progress bar -->
-    <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+  <!-- Scroll progress bar -->
+  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
 
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen" aria-hidden="false">
-        <div class="loader-svg" role="img" aria-label="Loading animation">
-            <svg width="160" height="160" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="g1" x1="0%" x2="100%">
-                        <stop offset="0%" stop-color="#FF6B00" />
-                        <stop offset="100%" stop-color="#FF8534" />
-                    </linearGradient>
-                </defs>
-                <circle cx="70" cy="70" r="54" stroke="rgba(255,255,255,0.06)" stroke-width="12" fill="none"/>
-                <circle id="loaderCircle" cx="70" cy="70" r="54" stroke="url(#g1)" stroke-width="12" stroke-linecap="round" stroke-dasharray="339.292" stroke-dashoffset="339.292" transform="rotate(-90 70 70)" fill="none" />
-                <text x="50%" y="46%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="16" fill="#fff">WEAPON</text>
-                <text x="50%" y="62%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="12" fill="#FF6B00">FITNESS 2</text>
-            </svg>
-        </div>
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen" aria-hidden="false" role="status" aria-live="polite">
+    <div class="loader-svg" role="img" aria-label="Loading animation">
+      <svg width="160" height="160" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="g1" x1="0%" x2="100%">
+            <stop offset="0%" stop-color="#FF6B00" />
+            <stop offset="100%" stop-color="#FF8534" />
+          </linearGradient>
+        </defs>
+        <circle cx="70" cy="70" r="54" stroke="rgba(255,255,255,0.06)" stroke-width="12" fill="none"/>
+        <circle id="loaderCircle" cx="70" cy="70" r="54" stroke="url(#g1)" stroke-width="12" stroke-linecap="round" stroke-dasharray="339.292" stroke-dashoffset="339.292" transform="rotate(-90 70 70)" fill="none" />
+        <text x="50%" y="46%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, sans-serif" font-weight="800" font-size="16" fill="#fff">WEAPON</text>
+        <text x="50%" y="62%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="12" fill="#FF6B00">FITNESS</text>
+      </svg>
     </div>
+  </div>
 
-    <!-- WhatsApp click animation overlay + CTA start button inside overlay -->
-    <div id="waOverlay" aria-hidden="true" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:2000;pointer-events:none;">
-        <div id="waAnim" style="width:260px;height:260px;border-radius:24px;display:flex;align-items:center;justify-content:center;flex-direction:column;backdrop-filter:blur(6px);background:linear-gradient(135deg,rgba(255,107,0,0.06),rgba(0,0,0,0.45));pointer-events:auto;">
-            <svg width="120" height="120" viewBox="0 0 120 120" aria-hidden="true">
-                <circle cx="60" cy="60" r="48" stroke="rgba(255,107,0,0.12)" stroke-width="12" fill="none"></circle>
-                <circle id="waPulse" cx="60" cy="60" r="48" stroke="#FF6B00" stroke-width="8" stroke-linecap="round" stroke-dasharray="301.59" stroke-dashoffset="301.59" transform="rotate(-90 60 60)" fill="none"></circle>
-            </svg>
-            <div style="margin-top:10px;color:#fff;font-weight:700;">Ready to start?</div>
-            <button id="waStart" class="btn-orange mt-4 px-6 py-2 rounded-lg ripple" aria-label="Start WhatsApp">START NOW</button>
-        </div>
+  <!-- WhatsApp overlay CTA -->
+  <div id="waOverlay" aria-hidden="true" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:2000;pointer-events:none;">
+    <div id="waAnim" style="width:260px;height:260px;border-radius:24px;display:flex;align-items:center;justify-content:center;flex-direction:column;backdrop-filter:blur(6px);background:linear-gradient(135deg,rgba(255,107,0,0.06),rgba(0,0,0,0.45));pointer-events:auto;">
+      <svg width="120" height="120" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+        <circle cx="60" cy="60" r="48" stroke="rgba(255,107,0,0.12)" stroke-width="12" fill="none"></circle>
+        <circle id="waPulse" cx="60" cy="60" r="48" stroke="#FF6B00" stroke-width="8" stroke-linecap="round" stroke-dasharray="301.59" stroke-dashoffset="301.59" transform="rotate(-90 60 60)" fill="none"></circle>
+      </svg>
+      <div style="margin-top:10px;color:#fff;font-weight:700;">Ready to start?</div>
+      <button id="waStart" class="btn-orange mt-4 px-6 py-2 rounded-lg ripple" aria-label="Start WhatsApp">START NOW</button>
     </div>
+  </div>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/919916577094" target="_blank" class="whatsapp-float" aria-label="Contact on WhatsApp">
-        <svg width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+  <!-- WhatsApp Floating Button -->
+  <a id="whatsappFloat" href="https://wa.me/919916577094" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contact on WhatsApp">
+    <svg width="30" height="30" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+      <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+    </svg>
+  </a>
+
+  <!-- Navigation -->
+  <nav class="fixed w-full top-0 z-50 bg-black bg-opacity-90 backdrop-blur-md" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="flex items-center justify-between py-4">
+        <div class="flex items-center gap-3">
+          <img src="/assets/logo (1).jpg" alt="weapon fitness logo" class="h-10 w-auto">
+          <div class="text-2xl font-bold leading-none">
+            <span class="text-white">WEAPON</span>
+            <span class="orange-accent"> FITNESS</span>
+          </div>
+        </div>
+
+        <div class="hidden md:flex items-center space-x-8" id="desktopMenu">
+          <a href="index.html" class="nav-link text-white">Home</a>
+          <a href="trainers.html" class="nav-link text-white">Trainers</a>
+          <a href="equipment.html" class="nav-link text-white">Our Equipment</a>
+          <a href="subscriptions.html" class="nav-link text-white">Subscriptions</a>
+          <a href="gallery.html" class="nav-link text-white">Gallery</a>
+          <a href="contact.html" class="nav-link text-white">Contact Us</a>
+        </div>
+
+        <!-- mobile menu button -->
+        <div class="flex items-center md:hidden">
+          <button id="menuBtn" class="text-white p-2 rounded-md" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="hidden pb-4 md:hidden" aria-hidden="true">
+        <a href="index.html" class="block py-2 text-white">Home</a>
+        <a href="trainers.html" class="block py-2 text-white">Trainers</a>
+        <a href="equipment.html" class="block py-2 text-white">Our Equipment</a>
+        <a href="subscriptions.html" class="block py-2 text-white">Subscriptions</a>
+        <a href="gallery.html" class="block py-2 text-white">Gallery</a>
+        <a href="contact.html" class="block py-2 text-white">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero-parallax" aria-labelledby="heroTitle">
+      <div class="hero-bg" id="heroBg" role="img" aria-label="Gym background image"></div>
+
+      <div class="relative z-10 h-full flex items-center justify-center text-center px-4">
+        <div class="hero-content">
+          <h1 id="heroTitle" class="opacity-0">WEAPON FITNESS<br><span class="orange-accent"></span></h1>
+          <p id="heroSubtitle" class="opacity-0">Transform Your Body. Transform Your Life.</p>
+          <div class="mt-6">
+            <a href="subscriptions.html" id="heroCTA" class="inline-block px-6 py-2 btn-orange text-white font-bold text-lg rounded-lg opacity-0 ripple" role="button">Join Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce" aria-hidden="true">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
         </svg>
-    </a>
-
-    <!-- Navigation -->
-    <nav class="fixed w-full top-0 z-50 bg-black bg-opacity-90 backdrop-blur-md" id="navbar">
-        <div class="container">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center gap-2">
-    <img src="/assets/logo (1).jpg" alt="weapon fitness Logo" class="h-10 w-auto">
-    <div class="text-2xl font-bold">
-        <span class="text-white">WEAPON</span>
-        <span class="orange-accent"> FITNESS </span>
-    </div>
-</div>
-
-                <div class="hidden md:flex space-x-8" id="desktopMenu">
-                    <a href="index.html" class="nav-link text-white">Home</a>
-                    <a href="trainers.html" class="nav-link text-white">Trainers</a>
-                    <a href="equipment.html" class="nav-link text-white">Our Equipment</a>
-                    <a href="subscriptions.html" class="nav-link text-white">Subscriptions</a>
-                    <a href="gallery.html" class="nav-link text-white">Gallery</a>
-                    <a href="contact.html" class="nav-link text-white">Contact Us</a>
-                </div>
-                <button class="md:hidden text-white" id="menuBtn" aria-expanded="false">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-            <div class="hidden md:hidden pb-4" id="mobileMenu">
-                <a href="index.html" class="block py-2 text-white">Home</a>
-                <a href="trainers.html" class="block py-2 text-white">Trainers</a>
-                <a href="equipment.html" class="block py-2 text-white">Our Equipment</a>
-                <a href="subscriptions.html" class="block py-2 text-white">Subscriptions</a>
-                <a href="gallery.html" class="block py-2 text-white">Gallery</a>
-                <a href="contact.html" class="block py-2 text-white">Contact Us</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-parallax">
-        <div class="hero-bg" id="heroBg"></div>
-        <div class="relative z-10 h-full flex items-center justify-center text-center px-4">
-            <div class="hero-content">
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 opacity-0" id="heroTitle">WEAPON FITNESS<br><span class="orange-accent"></span></h1>
-                <p class="text-xl md:text-2xl mb-8 opacity-0" id="heroSubtitle">Transform Your Body. Transform Your Life.</p>
-                <a href="subscriptions.html" id="heroCTA" class="inline-block px-6 py-2 btn-orange text-white font-bold text-lg rounded-lg opacity-0 ripple">Join Now</a>
-            </div>
-        </div>
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-        </div>
+      </div>
     </section>
 
     <!-- Services -->
-    <section class="py-20 px-4 bg-black">
-        <div class="container">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 services-title">WHY CHOOSE <span class="orange-accent">US</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="service-card p-8 rounded-xl" tabindex="0" data-card>
-                    <h3 class="text-2xl font-bold mb-3">MODERN EQUIPMENT</h3>
-                    <p class="text-gray-300">State-of-the-art fitness machines and equipment for optimal results</p>
-                </div>
-                <div class="service-card p-8 rounded-xl" tabindex="0" data-card>
-                    <h3 class="text-2xl font-bold mb-3">CERTIFIED TRAINERS</h3>
-                    <p class="text-gray-300">Expert guidance from experienced and certified fitness professionals</p>
-                </div>
-                <div class="service-card p-8 rounded-xl" tabindex="0" data-card>
-                    <h3 class="text-2xl font-bold mb-3">PERSONALIZED TRAINING</h3>
-                    <p class="text-gray-300">Custom workout plans tailored to your specific fitness goals</p>
-                </div>
-                <div class="service-card p-8 rounded-xl" tabindex="0" data-card>
-                    <h3 class="text-2xl font-bold mb-3">DIET GUIDANCE</h3>
-                    <p class="text-gray-300">Professional nutrition advice to complement your training</p>
-                </div>
-                <div class="service-card p-8 rounded-xl" tabindex="0" data-card>
-                    <h3 class="text-2xl font-bold mb-3">GROUP CLASSES</h3>
-                    <p class="text-gray-300">Aerobics, Strengthening, CrossFit, and Cardio sessions</p>
-                </div>
-                <div class="service-card p-8 rounded-xl" tabindex="0" data-card>
-                    <h3 class="text-2xl font-bold mb-3">CROSSFIT TRAINING</h3>
-                    <p class="text-gray-300">High-intensity functional fitness programs for maximum results</p>
-                </div>
-            </div>
+    <section class="bg-black">
+      <div class="container">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 services-title">WHY CHOOSE <span class="orange-accent">US</span></h2>
+
+        <div class="service-grid">
+          <div class="service-card p-6 rounded-xl" tabindex="0" data-card>
+            <h3 class="text-2xl font-bold mb-3">MODERN EQUIPMENT</h3>
+            <p class="text-gray-300">State-of-the-art fitness machines and equipment for optimal results</p>
+          </div>
+
+          <div class="service-card p-6 rounded-xl" tabindex="0" data-card>
+            <h3 class="text-2xl font-bold mb-3">CERTIFIED TRAINERS</h3>
+            <p class="text-gray-300">Expert guidance from experienced and certified fitness professionals</p>
+          </div>
+
+          <div class="service-card p-6 rounded-xl" tabindex="0" data-card>
+            <h3 class="text-2xl font-bold mb-3">PERSONALIZED TRAINING</h3>
+            <p class="text-gray-300">Custom workout plans tailored to your specific fitness goals</p>
+          </div>
+
+          <div class="service-card p-6 rounded-xl" tabindex="0" data-card>
+            <h3 class="text-2xl font-bold mb-3">DIET GUIDANCE</h3>
+            <p class="text-gray-300">Professional nutrition advice to complement your training</p>
+          </div>
+
+          <div class="service-card p-6 rounded-xl" tabindex="0" data-card>
+            <h3 class="text-2xl font-bold mb-3">GROUP CLASSES</h3>
+            <p class="text-gray-300">Aerobics, Strengthening, CrossFit, and Cardio sessions</p>
+          </div>
+
+          <div class="service-card p-6 rounded-xl" tabindex="0" data-card>
+            <h3 class="text-2xl font-bold mb-3">CROSSFIT TRAINING</h3>
+            <p class="text-gray-300">High-intensity functional fitness programs for maximum results</p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Transformations -->
-    <section class="py-20 px-4 bg-zinc-950">
-        <div class="container">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 transformations-title">CLIENT <span class="orange-accent">TRANSFORMATIONS</span></h2>
-            <p class="text-center text-gray-400 mb-12 text-lg">Real Results. Real People. Real Success.</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                <div class="transformation-card" data-transform>
-                    <img src="/assets/transformations/01.png" alt="Transformation 1" class="w-full h-80 object-cover rounded-xl">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 rounded-b-xl">
-                        <p class="text-lg font-bold">-15 KG in 3 Months</p>
-                    </div>
-                </div>
-                <div class="transformation-card" data-transform>
-                    <img src="/assets/transformations/02.png" alt="Transformation 2" class="w-full h-80 object-cover rounded-xl">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 rounded-b-xl">
-                        <p class="text-lg font-bold">+8 KG Muscle Gain</p>
-                    </div>
-                </div>
-                <div class="transformation-card" data-transform>
-                    <img src="/assets/transformations/03.png" alt="Transformation 3" class="w-full h-80 object-cover rounded-xl">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 rounded-b-xl">
-                        <p class="text-lg font-bold">Complete Body Recomp</p>
-                    </div>
-                </div>
+    <section class="bg-zinc-950">
+      <div class="container">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 transformations-title">CLIENT <span class="orange-accent">TRANSFORMATIONS</span></h2>
+        <p class="text-center text-gray-400 mb-12 text-lg">Real Results. Real People. Real Success.</p>
+
+        <div class="transform-grid mb-12">
+          <div class="transformation-card h-64 rounded-xl overflow-hidden" data-transform>
+            <img src="/assets/transformations/01.png" alt="Transformation 1" class="w-full h-full object-cover rounded-xl">
+            <div class="meta p-4">
+              <p class="text-lg font-bold">-15 KG in 3 Months</p>
             </div>
-            <div class="text-center">
-                <a href="gallery.html" class="inline-block px-8 py-4 btn-orange text-white font-bold text-lg rounded-lg">View More Transformations</a>
+          </div>
+
+          <div class="transformation-card h-64 rounded-xl overflow-hidden" data-transform>
+            <img src="/assets/transformations/02.png" alt="Transformation 2" class="w-full h-full object-cover rounded-xl">
+            <div class="meta p-4">
+              <p class="text-lg font-bold">+8 KG Muscle Gain</p>
             </div>
+          </div>
+
+          <div class="transformation-card h-64 rounded-xl overflow-hidden" data-transform>
+            <img src="/assets/transformations/03.png" alt="Transformation 3" class="w-full h-full object-cover rounded-xl">
+            <div class="meta p-4">
+              <p class="text-lg font-bold">Complete Body Recomp</p>
+            </div>
+          </div>
         </div>
+
+        <div class="text-center">
+          <a href="gallery.html" class="inline-block px-8 py-4 btn-orange text-white font-bold text-lg rounded-lg">View More Transformations</a>
+        </div>
+      </div>
     </section>
 
     <!-- Location -->
-    <section class="py-20 px-4 bg-black">
-        <div class="container">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 location-title">VISIT <span class="orange-accent">US</span></h2>
-            <p class="text-center text-gray-400 mb-12 text-lg">Located in the Heart of BSK 3rd Stage</p>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                <div class="space-y-6">
-                    <div class="bg-zinc-900 p-6 rounded-xl">
-                        <h3 class="text-2xl font-bold mb-4 orange-accent">ADDRESS</h3>
-                        <p class="text-lg text-gray-300">#175, BDA Layout, 50 Feet Road<br>BSK 3rd Stage, Bangalore-85<br>Above HDFC Bank</p>
-                    </div>
-                    <div class="bg-zinc-900 p-6 rounded-xl">
-                        <h3 class="text-2xl font-bold mb-4 orange-accent">CONTACT</h3>
-                        <p class="text-lg text-gray-300"><a href="tel:8050577094" class="hover:text-orange-500">8050577094</a><br><a href="tel:9916577094" class="hover:text-orange-500">9916577094</a></p>
-                    </div>
-                    <div class="bg-zinc-900 p-6 rounded-xl">
-                        <h3 class="text-2xl font-bold mb-4 orange-accent">HOURS</h3>
-                        <p class="text-lg text-gray-300">Monday - Sunday<br>6:00 AM - 10:00 PM</p>
-                    </div>
-                </div>
-                <div class="h-96 lg:h-full rounded-xl overflow-hidden">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.6377583333333!2d77.5571!3d12.9352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU2JzA2LjciTiA3N8KwMzMnMjUuNiJF!5e0!3m2!1sen!2sin!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-xl"></iframe>
-                </div>
+    <section class="bg-black">
+      <div class="container">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 location-title">VISIT <span class="orange-accent">US</span></h2>
+        <p class="text-center text-gray-400 mb-12 text-lg">Located in the Heart of BSK 3rd Stage</p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          <div class="space-y-6">
+            <div class="bg-zinc-900 p-6 rounded-xl">
+              <h3 class="text-2xl font-bold mb-4 orange-accent">ADDRESS</h3>
+              <p class="text-lg text-gray-300">#175, BDA Layout, 50 Feet Road<br>BSK 3rd Stage, Bangalore-85<br>Above HDFC Bank</p>
             </div>
+
+            <div class="bg-zinc-900 p-6 rounded-xl">
+              <h3 class="text-2xl font-bold mb-4 orange-accent">CONTACT</h3>
+              <p class="text-lg text-gray-300"><a href="tel:8050577094" class="hover:text-orange-500">8050577094</a><br><a href="tel:9916577094" class="hover:text-orange-500">9916577094</a></p>
+            </div>
+
+            <div class="bg-zinc-900 p-6 rounded-xl">
+              <h3 class="text-2xl font-bold mb-4 orange-accent">HOURS</h3>
+              <p class="text-lg text-gray-300">Monday - Sunday<br>6:00 AM - 10:00 PM</p>
+            </div>
+          </div>
+
+          <div class="map-wrap rounded-xl overflow-hidden">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.6377583333333!2d77.5571!3d12.9352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU2JzA2LjciTiA3N8KwMzMnMjUuNiJF!5e0!3m2!1sen!2sin!4v1234567890" width="100%" height="100%" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-hidden="false"></iframe>
+          </div>
         </div>
+      </div>
     </section>
+  </main>
 
-    <!-- Footer -->
-    <footer class="bg-zinc-950 py-12 px-4">
-        <div class="container">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                <div>
-                    <h3 class="text-2xl font-bold mb-4"><span class="text-white">WEAPON</span> <span class="orange-accent"> FITNESS </span></h3>
-                    <p class="text-gray-400">Transform your body and mind at BSK 3rd Stage's premier fitness destination.</p>
-                </div>
-                <div>
-                    <h4 class="text-xl font-bold mb-4 orange-accent">QUICK LINKS</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="index.html" class="hover:text-orange-500">Home</a></li>
-                        <li><a href="subscriptions.html" class="hover:text-orange-500">Subscriptions</a></li>
-                        <li><a href="trainers.html" class="hover:text-orange-500">Trainers</a></li>
-                        <li><a href="contact.html" class="hover:text-orange-500">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xl font-bold mb-4 orange-accent">GET STARTED</h4>
-                    <p class="text-gray-400 mb-4">Ready to begin your fitness journey?</p>
-                    <a href="contact.html" class="inline-block px-6 py-3 btn-orange text-white font-bold rounded-lg">CONTACT US</a>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
-                <p>&copy; <span id="currentYear"></span> weapon fitness. All rights reserved.</p>
-            </div>
+  <!-- Footer -->
+  <footer class="bg-zinc-950 py-12 px-4">
+    <div class="container">
+      <div class="grid-footer mb-8">
+        <div>
+          <h3 class="text-2xl font-bold mb-4"><span class="text-white">WEAPON</span> <span class="orange-accent"> FITNESS </span></h3>
+          <p class="text-gray-400">Transform your body and mind at BSK 3rd Stage's premier fitness destination.</p>
         </div>
-    </footer>
 
-    <!-- Scripts -->
-    <script>
-        // Set current year
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        <div>
+          <h4 class="text-xl font-bold mb-4 orange-accent">QUICK LINKS</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="index.html" class="hover:text-orange-500">Home</a></li>
+            <li><a href="subscriptions.html" class="hover:text-orange-500">Subscriptions</a></li>
+            <li><a href="trainers.html" class="hover:text-orange-500">Trainers</a></li>
+            <li><a href="contact.html" class="hover:text-orange-500">Contact Us</a></li>
+          </ul>
+        </div>
 
-        // Progress bar on scroll
-        const progressBar = document.getElementById('progressBar');
-        window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY || window.pageYOffset;
-            const docHeight = document.body.scrollHeight - window.innerHeight;
-            const pct = docHeight ? (scrolled / docHeight) * 100 : 0;
-            progressBar.style.width = pct + '%';
-        });
+        <div>
+          <h4 class="text-xl font-bold mb-4 orange-accent">GET STARTED</h4>
+          <p class="text-gray-400 mb-4">Ready to begin your fitness journey?</p>
+          <a href="contact.html" class="inline-block px-6 py-3 btn-orange text-white font-bold rounded-lg">CONTACT US</a>
+        </div>
+      </div>
 
-        // Preloader SVG animation and hide
-        const loaderCircle = document.getElementById('loaderCircle');
-        const loadingScreen = document.getElementById('loadingScreen');
-        function hideLoader(){
-            if(!loadingScreen) return;
+      <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
+        <p>&copy; <span id="currentYear"></span> weapon fitness. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Set current year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Progress bar on scroll
+    (function() {
+      const progressBar = document.getElementById('progressBar');
+      window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY || window.pageYOffset;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const pct = docHeight ? (scrolled / docHeight) * 100 : 0;
+        progressBar.style.width = pct + '%';
+      });
+    })();
+
+    // Preloader SVG animation and hide
+    (function(){
+      const loaderCircle = document.getElementById('loaderCircle');
+      const loadingScreen = document.getElementById('loadingScreen');
+
+      function hideLoader(){
+        if(!loadingScreen) return;
+        if (window.gsap) {
+          try {
             gsap.to('#loaderCircle',{strokeDashoffset:0,duration:1.1,ease:'power2.out'});
-            gsap.to('#loadingScreen',{opacity:0,duration:.6,delay:1.05,onComplete:()=>{loadingScreen.style.display='none';loadingScreen.setAttribute('aria-hidden','true')}});
+            gsap.to('#loadingScreen',{opacity:0,duration:.6,delay:1.05,onComplete:()=>{loadingScreen.style.display='none';loadingScreen.setAttribute('aria-hidden','true')}});                
+          } catch(e){ loadingScreen.style.display='none'; loadingScreen.setAttribute('aria-hidden','true'); }
+        } else {
+          loadingScreen.style.display='none';
+          loadingScreen.setAttribute('aria-hidden','true');
         }
-        if(document.readyState==='complete') hideLoader(); else window.addEventListener('load', hideLoader);
-
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        menuBtn.addEventListener('click',()=>{const isOpen=!mobileMenu.classList.contains('hidden');mobileMenu.classList.toggle('hidden');menuBtn.setAttribute('aria-expanded',String(isOpen));});
-
-        // GSAP animations
-        gsap.registerPlugin(ScrollTrigger,Observer);
-
-        // Hero parallax + scale
-        gsap.to('#heroBg',{y:360,scale:1.03,scrollTrigger:{trigger:'.hero-parallax',start:'top top',end:'bottom top',scrub:1}});
-
-        // Hero content entrance + CTA ripple effect
-        const heroTL = gsap.timeline();
-        heroTL.from('#heroTitle',{opacity:0,y:30,duration:.9,ease:'power3.out'})
-              .from('#heroSubtitle',{opacity:0,y:20,duration:.8},'-=.5')
-              .from('#heroCTA',{opacity:0,scale:.95,duration:.6},'-=.4');
-        // CTA ripple on click
-        document.querySelectorAll('.ripple').forEach(btn=>{
-            btn.addEventListener('click',function(e){
-                const rect = this.getBoundingClientRect();
-                const circle = document.createElement('span');
-                const size = Math.max(rect.width,rect.height);
-                circle.style.width = circle.style.height = size+'px';
-                circle.style.left = (e.clientX - rect.left - size/2)+'px';
-                circle.style.top = (e.clientY - rect.top - size/2)+'px';
-                circle.style.position='absolute';
-                circle.style.borderRadius='50%';
-                circle.style.background='rgba(255,107,0,0.18)';
-                circle.style.transform='scale(0)';
-                circle.style.pointerEvents='none';
-                circle.style.transition='transform .6s ease,opacity .6s ease';
-                this.appendChild(circle);
-                requestAnimationFrame(()=>{circle.style.transform='scale(1)';circle.style.opacity='0'});
-                setTimeout(()=>circle.remove(),700);
-            });
-        });
-
-        // Entrance + tilt for service cards
-        gsap.utils.toArray('.service-card').forEach((card,i)=>{
-            gsap.from(card,{scrollTrigger:{trigger:card,start:'top 85%',toggleActions:'play none none reverse'},opacity:0,y:40,duration:.9,delay:i*.08});
-            card.addEventListener('mousemove',(e)=>{const r=card.getBoundingClientRect();const x=e.clientX-r.left-r.width/2;const y=e.clientY-r.top-r.height/2;const rotX=(-y/r.height)*6;const rotY=(x/r.width)*6;card.style.transform=`translateY(-8px) rotateX(${rotX}deg) rotateY(${rotY}deg)`});
-            card.addEventListener('mouseleave',()=>{card.style.transform=''});
-        });
-
-        // Transformations subtle parallax on scroll + hover tilt
-        gsap.utils.toArray('[data-transform]').forEach((card,i)=>{
-            const img = card.querySelector('img');
-            gsap.from(card,{scrollTrigger:{trigger:card,start:'top 85%',toggleActions:'play none none reverse'},opacity:0,scale:.92,duration:.8,delay:i*.12});
-            // scroll-linked slow parallax for image
-            gsap.to(img,{y:20,scrollTrigger:{trigger:card,start:'top bottom',end:'bottom top',scrub:true}});
-            card.addEventListener('mouseenter',()=>gsap.to(img,{rotationY:6,rotationX:3,duration:.6,ease:'power3.out'}));
-            card.addEventListener('mouseleave',()=>gsap.to(img,{rotationY:0,rotationX:0,duration:.6,ease:'power3.out'}));
-        });
-
-        // Nav items entrance
-        window.addEventListener('load',()=>{gsap.from('#desktopMenu a',{y:-10,opacity:0,stagger:.08,duration:.6,ease:'power2.out'})});
-
-        // WhatsApp float bounce
-        gsap.to('#whatsappFloat',{y:-6,duration:1.2,repeat:-1,yoyo:true,ease:'sine.inOut'});
-
-        // WhatsApp workflow: open overlay, let user click START NOW (gives them control), then animate and open WA
-        const waBtn = document.getElementById('whatsappFloat');
-        const waOverlay = document.getElementById('waOverlay');
-        const waPulse = document.getElementById('waPulse');
-        const waAnim = document.getElementById('waAnim');
-        const waStart = document.getElementById('waStart');
-        const waLink = 'https://wa.me/919916577094';
-
-        function showWaOverlay(){
-            waOverlay.style.display='flex';waOverlay.setAttribute('aria-hidden','false');
-            gsap.fromTo('#waOverlay',{opacity:0},{opacity:1,duration:.18});
-            // animate pulse once
-            gsap.to('#waPulse',{strokeDashoffset:0,duration:.9,ease:'power2.out'});
-            gsap.fromTo('#waAnim',{scale:.96,opacity:0},{scale:1,opacity:1,duration:.35,ease:'back.out(1.2)'});
-        }
-
-        function hideWaOverlay(){
-            gsap.to('#waOverlay',{opacity:0,duration:.25,onComplete:()=>{waOverlay.style.display='none';waOverlay.setAttribute('aria-hidden','true');gsap.set('#waPulse',{strokeDashoffset:301.59})}});
-        }
-
-        waBtn.addEventListener('click',e=>{e.preventDefault();showWaOverlay();});
-        // START NOW button: small animation then open WA
-        waStart.addEventListener('click',()=>{
-            gsap.to('#waPulse',{strokeDashoffset:0,duration:.6,ease:'power2.out'});
-            gsap.to('#waAnim',{scale:1.06,duration:.4,yoyo:true,repeat:1});
-            setTimeout(()=>{hideWaOverlay();window.open(waLink,'_blank')},850);
-        });
-
-        // Accessibility: respect reduced motion
-        const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-        if(mq.matches){gsap.globalTimeline.timeScale(.0001);document.querySelectorAll('*').forEach(el=>el.style.transition='none')}
-    </script>
-    <script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Elements
-  const heroTitle = document.getElementById('heroTitle');
-  const heroSubtitle = document.getElementById('heroSubtitle');
-  const heroCTA = document.getElementById('heroCTA');
-  const loadingScreen = document.getElementById('loadingScreen');
-
-  // Helper: reveal immediately (fallback)
-  function revealFallback() {
-    if (heroTitle) heroTitle.style.opacity = '1';
-    if (heroSubtitle) heroSubtitle.style.opacity = '1';
-    if (heroCTA) heroCTA.style.opacity = '1';
-    if (loadingScreen) {
-      loadingScreen.style.display = 'none';
-      loadingScreen.setAttribute('aria-hidden', 'true');
-    }
-  }
-
-  // If GSAP is available and no other JS error, run the timeline
-  try {
-    if (window.gsap && typeof gsap.timeline === 'function') {
-      // make sure ScrollTrigger plugin registered earlier in your code if needed
-      const tl = gsap.timeline();
-
-      // Reveal loader first (if still visible)
-      if (loadingScreen) {
-        gsap.to(loadingScreen, { opacity: 0, duration: 0.5, delay: 0.25, onComplete() {
-          loadingScreen.style.display = 'none';
-          loadingScreen.setAttribute('aria-hidden', 'true');
-        }});
       }
 
-      // Hero entrance
-      tl.fromTo(heroTitle, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' });
-      tl.fromTo(heroSubtitle, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.5');
-      tl.fromTo(heroCTA, { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.6 }, '-=0.4');
+      if(document.readyState === 'complete') hideLoader();
+      else window.addEventListener('load', hideLoader);
+    })();
 
-      // subtle repeating pulse for CTA (non-blocking)
-      gsap.to(heroCTA, { scale: 1.03, duration: 1.2, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 2 });
+    // Mobile Menu Toggle (fixed logic)
+    (function(){
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
 
-    } else {
-      // GSAP not present — fallback
-      revealFallback();
-      console.warn('GSAP not found — hero revealed with fallback.');
-    }
-  } catch (err) {
-    console.error('Hero animation error:', err);
-    revealFallback();
-  }
-});
-</script>
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+          const wasHidden = mobileMenu.classList.contains('hidden');
+          if (wasHidden) {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.setAttribute('aria-hidden', 'false');
+            menuBtn.setAttribute('aria-expanded', 'true');
+          } else {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+            menuBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
 
+        // close on outside click (mobile)
+        document.addEventListener('click', (e) => {
+          if (!mobileMenu.classList.contains('hidden')) {
+            const target = e.target;
+            if (!mobileMenu.contains(target) && !menuBtn.contains(target)) {
+              mobileMenu.classList.add('hidden');
+              mobileMenu.setAttribute('aria-hidden', 'true');
+              menuBtn.setAttribute('aria-expanded', 'false');
+            }
+          }
+        });
+      }
+    })();
+
+    // Ripple effect for buttons (safe)
+    (function(){
+      document.querySelectorAll('.ripple').forEach(btn=>{
+        btn.addEventListener('click', function(e){
+          const rect = this.getBoundingClientRect();
+          const circle = document.createElement('span');
+          const size = Math.max(rect.width, rect.height);
+          circle.style.width = circle.style.height = size + 'px';
+          circle.style.left = (e.clientX - rect.left - size/2) + 'px';
+          circle.style.top = (e.clientY - rect.top - size/2) + 'px';
+          circle.style.background = 'rgba(255,107,0,0.18)';
+          circle.style.transform = 'scale(0)';
+          circle.style.position = 'absolute';
+          circle.style.pointerEvents = 'none';
+          circle.style.transition = 'transform .6s ease, opacity .6s ease';
+          this.appendChild(circle);
+          requestAnimationFrame(()=>{ circle.style.transform = 'scale(1)'; circle.style.opacity = '0'; });
+          setTimeout(()=> circle.remove(), 700);
+        });
+      });
+    })();
+
+    // GSAP animations with guards
+    (function(){
+      if (window.gsap) {
+        try {
+          gsap.registerPlugin(ScrollTrigger, Observer);
+
+          // Hero parallax
+          try {
+            gsap.to('#heroBg', { y: 360, scale: 1.03, scrollTrigger: { trigger: '.hero-parallax', start: 'top top', end: 'bottom top', scrub: 1 } });
+          } catch (e) { console.warn('hero parallax error', e); }
+
+          // Entrance animations for service cards
+          gsap.utils.toArray('.service-card').forEach((card, i) => {
+            try {
+              gsap.from(card, { scrollTrigger: { trigger: card, start: 'top 85%', toggleActions: 'play none none reverse' }, opacity: 0, y: 40, duration: .9, delay: i * .08 });
+              card.addEventListener('mousemove', (ev) => {
+                const r = card.getBoundingClientRect();
+                const x = ev.clientX - r.left - r.width / 2;
+                const y = ev.clientY - r.top - r.height / 2;
+                const rotX = (-y / r.height) * 6;
+                const rotY = (x / r.width) * 6;
+                card.style.transform = `translateY(-8px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+              });
+              card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+            } catch (e) { /* ignore card errors */ }
+          });
+
+          // Transformations parallax and hover
+          gsap.utils.toArray('[data-transform]').forEach((card, i) => {
+            const img = card.querySelector('img');
+            try {
+              gsap.from(card, { scrollTrigger: { trigger: card, start: 'top 85%', toggleActions: 'play none none reverse' }, opacity: 0, scale: .92, duration: .8, delay: i * .12 });
+              gsap.to(img, { y: 20, scrollTrigger: { trigger: card, start: 'top bottom', end: 'bottom top', scrub: true } });
+              card.addEventListener('mouseenter', () => gsap.to(img, { rotationY: 6, rotationX: 3, duration: .6, ease:'power3.out' }));
+              card.addEventListener('mouseleave', () => gsap.to(img, { rotationY: 0, rotationX: 0, duration: .6, ease:'power3.out' }));
+            } catch (e) { /* ignore transform errors */ }
+          });
+
+          // Nav items entrance
+          window.addEventListener('load', () => {
+            try { gsap.from('#desktopMenu a', { y: -10, opacity: 0, stagger: .08, duration: .6, ease: 'power2.out' }); } catch (e) {}
+          });
+
+          // Floating WA bounce
+          try {
+            gsap.to('#whatsappFloat', { y: -6, duration: 1.2, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+          } catch (e) {}
+        } catch (e) {
+          console.warn('GSAP init error', e);
+        }
+      }
+    })();
+
+    // WhatsApp overlay workflow
+    (function(){
+      const waButtonElem = document.getElementById('whatsappFloat');
+      const waOverlay = document.getElementById('waOverlay');
+      const waPulse = document.getElementById('waPulse');
+      const waAnim = document.getElementById('waAnim');
+      const waStart = document.getElementById('waStart');
+      const waLink = 'https://wa.me/919916577094';
+
+      function showWaOverlay(){
+        if (!waOverlay) return;
+        waOverlay.style.display = 'flex';
+        waOverlay.setAttribute('aria-hidden', 'false');
+        if (window.gsap) {
+          try {
+            gsap.fromTo('#waOverlay', { opacity: 0 }, { opacity: 1, duration: .18 });
+            gsap.to('#waPulse', { strokeDashoffset: 0, duration: .9, ease: 'power2.out' });
+            gsap.fromTo('#waAnim', { scale: .96, opacity: 0 }, { scale: 1, opacity: 1, duration: .35, ease: 'back.out(1.2)' });
+          } catch (e) {}
+        }
+      }
+
+      function hideWaOverlay(){
+        if (!waOverlay) return;
+        if (window.gsap) {
+          try {
+            gsap.to('#waOverlay', { opacity: 0, duration: .25, onComplete: () => { waOverlay.style.display = 'none'; waOverlay.setAttribute('aria-hidden', 'true'); gsap.set('#waPulse', { strokeDashoffset: 301.59 }); } });
+          } catch (e) { waOverlay.style.display = 'none'; waOverlay.setAttribute('aria-hidden', 'true'); }
+        } else {
+          waOverlay.style.display = 'none';
+          waOverlay.setAttribute('aria-hidden', 'true');
+        }
+      }
+
+      if (waButtonElem) {
+        waButtonElem.addEventListener('click', (e) => { e.preventDefault(); showWaOverlay(); });
+      }
+      if (waStart) {
+        waStart.addEventListener('click', () => {
+          if (window.gsap) { try { gsap.to('#waPulse', { strokeDashoffset: 0, duration: .6, ease: 'power2.out' }); gsap.to('#waAnim', { scale: 1.06, duration: .4, yoyo: true, repeat: 1 }); } catch(e){} }
+          setTimeout(() => { hideWaOverlay(); window.open(waLink, '_blank', 'noopener'); }, 850);
+        });
+      }
+    })();
+
+    // Accessibility: respect reduced motion
+    (function(){
+      const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (mq.matches) {
+        if (window.gsap && gsap.globalTimeline) gsap.globalTimeline.timeScale(.0001);
+        document.querySelectorAll('*').forEach(el => el.style.transition = 'none');
+      }
+    })();
+  </script>
+
+  <script>
+    // Hero entrance timeline fallback & safe reveal
+    document.addEventListener('DOMContentLoaded', () => {
+      const heroTitle = document.getElementById('heroTitle');
+      const heroSubtitle = document.getElementById('heroSubtitle');
+      const heroCTA = document.getElementById('heroCTA');
+
+      function revealFallback() {
+        if (heroTitle) heroTitle.style.opacity = '1';
+        if (heroSubtitle) heroSubtitle.style.opacity = '1';
+        if (heroCTA) heroCTA.style.opacity = '1';
+      }
+
+      try {
+        if (window.gsap && typeof gsap.timeline === 'function') {
+          const tl = gsap.timeline();
+
+          // hide loader if still visible
+          const loadingScreen = document.getElementById('loadingScreen');
+          if (loadingScreen) {
+            try {
+              gsap.to(loadingScreen, { opacity: 0, duration: 0.5, delay: 0.25, onComplete() {
+                loadingScreen.style.display = 'none';
+                loadingScreen.setAttribute('aria-hidden', 'true');
+              }});
+            } catch(e){}
+          }
+
+          tl.fromTo(heroTitle, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' });
+          tl.fromTo(heroSubtitle, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.5');
+          tl.fromTo(heroCTA, { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.6 }, '-=0.4');
+
+          gsap.to(heroCTA, { scale: 1.03, duration: 1.2, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 2 });
+        } else {
+          revealFallback();
+          console.warn('GSAP not found — hero revealed with fallback.');
+        }
+      } catch (err) {
+        console.error('Hero animation error:', err);
+        revealFallback();
+      }
+    });
+  </script>
 </body>
 </html>
